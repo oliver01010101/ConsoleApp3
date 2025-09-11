@@ -18,7 +18,7 @@ namespace alap
             Console.WriteLine("adjon meg egy számot: ");
             int szam = int.Parse(Console.ReadLine());
 
-
+            asdsa
 
 
             Console.WriteLine("2. Üdvözlöm " + nev);
