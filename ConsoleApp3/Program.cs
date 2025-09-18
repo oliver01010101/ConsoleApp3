@@ -232,19 +232,19 @@ namespace ConsoleApp3
             F25();
             Console.WriteLine();
             Console.WriteLine("F 26.");
-            F26();
+
             Console.WriteLine();
             Console.WriteLine("F 27.");
-            F27();
+
             Console.WriteLine();
             Console.WriteLine("F 28.");
 
             Console.WriteLine();
             Console.WriteLine("F 29.");
-            F29();
+ 
             Console.WriteLine();
             Console.WriteLine("F 30.");
-            F30();
+
             Console.WriteLine();
             Console.WriteLine("F 31.");
             F31();
@@ -412,83 +412,7 @@ namespace ConsoleApp3
             while (szam > 3) { szam = szam - 3; db++; }
             Console.WriteLine($"{eredeti} = {db} * 3 + {szam}");
         }
-        static void F26()
-        {
-            int szam26 = SzamBekeres();
-            bool prim = true;
-
-            if (szam26 <= 1)
-            {
-                prim = false;
-            }
-            else
-            {
-                for (int i = 2; i * i <= szam26; i++)
-                {
-                    if (szam26 % i == 0)
-                    {
-                        prim = false;
-                        break;
-                    }
-                }
-            }
-
-            if (prim)
-            {
-                Console.WriteLine(szam26 + " prímszám.");
-            }
-            else
-            {
-                Console.WriteLine(szam26 + " nem prímszám.");
-            }
-        }
-        static void F27()
-        {
-            int szam27 = SzamBekeres();
-            Console.Write("Prímszámok " + szam27 + "-ig: ");
-
-            for (int szam = 2; szam <= szam27; szam++)
-            {
-                bool isPrim = true;
-                for (int i = 2; i * i <= szam; i++)
-                {
-                    if (szam % i == 0)
-                    {
-                        isPrim = false;
-                        break;
-                    }
-                }
-                if (isPrim)
-                {
-                    Console.Write(szam + " ");
-                }
-            }
-        }
-        static void F29()
-        {
-            int szam29 = SzamBekeres();
-            int eredeti29 = szam29;
-            List<int> primtenyezok = new List<int>();
-
-            for (int i = 2; i <= szam29; i++)
-            {
-                while (szam29 % i == 0)
-                {
-                    primtenyezok.Add(i);
-                    szam29 /= i;
-                }
-            }
-
-            Console.Write(eredeti29 + " = ");
-            for (int i = 0; i < primtenyezok.Count; i++)
-            {
-                Console.Write(primtenyezok[i]);
-                if (i < primtenyezok.Count - 1)
-                {
-                    Console.Write(" * ");
-                }
-            }
-        }
+        
         static void F30()
         {
             Console.Write("Első szám: ");
