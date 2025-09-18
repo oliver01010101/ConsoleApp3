@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp3", "ConsoleApp3\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "alap", "alap\alap.csproj", "{29F3D3FF-B5C0-44F8-A841-82F6076BED63}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "feladatok20250918", "feladatok20250918\feladatok20250918.csproj", "{E66F0255-D251-4361-B35E-86515524EA6E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{29F3D3FF-B5C0-44F8-A841-82F6076BED63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29F3D3FF-B5C0-44F8-A841-82F6076BED63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29F3D3FF-B5C0-44F8-A841-82F6076BED63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E66F0255-D251-4361-B35E-86515524EA6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E66F0255-D251-4361-B35E-86515524EA6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E66F0255-D251-4361-B35E-86515524EA6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E66F0255-D251-4361-B35E-86515524EA6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
