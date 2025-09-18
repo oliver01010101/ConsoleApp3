@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Runtime.Intrinsics.Arm;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace ConsoleApp3
 {
@@ -6,242 +9,92 @@ namespace ConsoleApp3
     {
         static void Main(string[] args)
         {
-            /*
-            Console.WriteLine("Hello, world!");
-
-            Console.WriteLine("adja meg a nevét: ");
-            string nev = Console.ReadLine();
-            Console.WriteLine("2. Üdvözlöm " + nev);
-
-            Console.WriteLine("adjon meg egy számot: ");
-            int szam = int.Parse(Console.ReadLine());
-            Console.WriteLine("3. a szám kétszerese: " + (szam * 2));
-
-            Console.WriteLine("adja meg az első számot: ");
-            int szam1 = int.Parse(Console.ReadLine());
-            Console.WriteLine("adja meg a második számot: ");
-            int szam2 = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("4. a két szám összege: " + (szam1 + szam2) + ", a két szám különbsége: " + (szam1 - szam2));
-
-            Console.WriteLine("4a. Összeg: " + (szam1 + szam2));
-
-            Console.WriteLine("4b. Különbség: " + (szam1 - szam2));
-
-            Console.WriteLine("4c. Szorzat: " + (szam1 * szam2));
-
-            if (szam2 != 0)
-            {
-                Console.WriteLine("4d. Hányados: " + ((double)szam1 / szam2));
-            }
-            else
-            {
-                Console.WriteLine("4d. Nullával nem lehet osztani!");
-            }
-
-            Console.WriteLine("5. Adjon meg két egész számot:");
-            Console.Write("Első szám: ");
-            int egesz1 = int.Parse(Console.ReadLine());
-            Console.Write("Második szám: ");
-            int egesz2 = int.Parse(Console.ReadLine());
-
-            int nagyobbik = Math.Max(egesz1, egesz2);
-            Console.WriteLine("5. A nagyobbik szám: " + nagyobbik);
-
-            Console.WriteLine("6. Adjon meg három egész számot:");
-            Console.Write("Első szám: ");
-            int harom1 = int.Parse(Console.ReadLine());
-            Console.Write("Második szám: ");
-            int harom2 = int.Parse(Console.ReadLine());
-            Console.Write("Harmadik szám: ");
-            int harom3 = int.Parse(Console.ReadLine());
-
-            int legkisebb = Math.Min(Math.Min(harom1, harom2), harom3);
-            Console.WriteLine("6. A legkisebb szám: " + legkisebb);
-
-            Console.WriteLine("7. Adja meg a háromszög három oldalának hosszát:");
-            Console.Write("a oldal: ");
-            double a = double.Parse(Console.ReadLine());
-            Console.Write("b oldal: ");
-            double b = double.Parse(Console.ReadLine());
-            Console.Write("c oldal: ");
-            double c = double.Parse(Console.ReadLine());
-
-            if (a + b > c && a + c > b && b + c > a)
-            {
-                Console.WriteLine("7. A háromszög szerkeszthető!");
-            }
-            else
-            {
-                Console.WriteLine("7. A háromszög nem szerkeszthető!");
-            }
-
-            Console.WriteLine("8. Adjon meg két pozitív egész számot:");
-            Console.Write("Első pozitív szám: ");
-            int poz1 = int.Parse(Console.ReadLine());
-            Console.Write("Második pozitív szám: ");
-            int poz2 = int.Parse(Console.ReadLine());
-
-            if (poz1 > 0 && poz2 > 0)
-            {
-                double szamtaniKozep = (poz1 + poz2) / 2.0;
-                double mertaniKozep = Math.Sqrt(poz1 * poz2);
-                Console.WriteLine("8. Számtani középérték: " + szamtaniKozep);
-                Console.WriteLine("8. Mértani középérték: " + mertaniKozep);
-            }
-            else
-            {
-                Console.WriteLine("8. Mindkét számnak pozitívnak kell lennie!");
-            }
-
-            Console.WriteLine("9. Adja meg a másodfokú egyenlet együtthatóit (ax² + bx + c = 0):");
-            Console.Write("a együttható: ");
-            double egyA = double.Parse(Console.ReadLine());
-            Console.Write("b együttható: ");
-            double egyB = double.Parse(Console.ReadLine());
-            Console.Write("c együttható: ");
-            double egyC = double.Parse(Console.ReadLine());
-
-            if (egyA == 0)
-            {
-                Console.WriteLine("9. Ez nem másodfokú egyenlet!");
-            }
-            else
-            {
-                double diszkriminans = egyB * egyB - 4 * egyA * egyC;
-                if (diszkriminans >= 0)
-                {
-                    Console.WriteLine("9. Az egyenletnek van megoldása!");
-                }
-                else
-                {
-                    Console.WriteLine("9. Az egyenletnek nincs valós megoldása!");
-                }
-            }
-
-            Console.WriteLine("10. Adja meg a másodfokú egyenlet együtthatóit a megoldáshoz:");
-            Console.Write("a együttható: ");
-            double megA = double.Parse(Console.ReadLine());
-            Console.Write("b együttható: ");
-            double megB = double.Parse(Console.ReadLine());
-            Console.Write("c együttható: ");
-            double megC = double.Parse(Console.ReadLine());
-
-            if (megA == 0)
-            {
-                Console.WriteLine("10. Ez nem másodfokú egyenlet!");
-            }
-            else
-            {
-                double d = megB * megB - 4 * megA * megC;
-                if (d > 0)
-                {
-                    double x1 = (-megB + Math.Sqrt(d)) / (2 * megA);
-                    double x2 = (-megB - Math.Sqrt(d)) / (2 * megA);
-                    Console.WriteLine("10. x1 = " + x1 + ", x2 = " + x2);
-                }
-                else if (d == 0)
-                {
-                    double x = -megB / (2 * megA);
-                    Console.WriteLine("10. x = " + x + " (dupla gyök)");
-                }
-                else
-                {
-                    Console.WriteLine("10. Nincs valós megoldás!");
-                }
-            }
-
-            Console.WriteLine("11. Adja meg a derékszögű háromszög két befogójának hosszát:");
-            Console.Write("Első befogó: ");
-            double befogo1 = double.Parse(Console.ReadLine());
-            Console.Write("Második befogó: ");
-            double befogo2 = double.Parse(Console.ReadLine());
-
-            double atfogo = Math.Sqrt(befogo1 * befogo1 + befogo2 * befogo2);
-            Console.WriteLine("11. Az átfogó hossza: " + atfogo);
-
-            Console.WriteLine("12. Adja meg a téglatest három élének hosszát:");
-            Console.Write("Hosszúság: ");
-            double hossz = double.Parse(Console.ReadLine());
-            Console.Write("Szélesség: ");
-            double szel = double.Parse(Console.ReadLine());
-            Console.Write("Magasság: ");
-            double mag = double.Parse(Console.ReadLine());
-
-            double felszin = 2 * (hossz * szel + hossz * mag + szel * mag);
-            double terfogat = hossz * szel * mag;
-            Console.WriteLine("12. Felszín: " + felszin);
-            Console.WriteLine("12. Térfogat: " + terfogat);
-
-            Console.WriteLine("13. Adja meg a kör átmérőjét:");
-            Console.Write("Átmérő: ");
-            double atmero = double.Parse(Console.ReadLine());
-
-            double sugar = atmero / 2;
-            double kerulet = 2 * Math.PI * sugar;
-            double terulet = Math.PI * sugar * sugar;
-            Console.WriteLine("13. Kerület: " + kerulet);
-            Console.WriteLine("13. Terület: " + terulet);
-
-            Console.WriteLine("14. Adja meg a körív sugarát és középponti szögét (fokban):");
-            Console.Write("Sugár: ");
-            double r = double.Parse(Console.ReadLine());
-            Console.Write("Középponti szög (fokban): ");
-            double szogFok = double.Parse(Console.ReadLine());
-
-            double szogRadian = szogFok * Math.PI / 180;
-            double ivHossz = r * szogRadian;
-            double korszeletTerulet = 0.5 * r * r * szogRadian;
-
-            Console.WriteLine("14. Az ív hossza: " + ivHossz);
-            Console.WriteLine("14. A körszelet területe: " + korszeletTerulet);
-             
-            */
-            
-            Console.WriteLine("F 15.");
-            F15();
-            Console.WriteLine();
-            Console.WriteLine("F 16.");
-            F16();
-            Console.WriteLine();
-            Console.WriteLine("F 17.");
-            F17();
-            Console.WriteLine();
-            Console.WriteLine("F 18.");
-            F18();
-            Console.WriteLine();
-            Console.WriteLine("F 19.");
-            F19();
-            Console.WriteLine();
-            Console.WriteLine("F 20.");
-            F20();
-            Console.WriteLine();
-            Console.WriteLine("F 21.");
-            F21();
-            Console.WriteLine();
-            Console.WriteLine("F 22.");
-            F22();
-            Console.WriteLine();
-            Console.WriteLine("F 23.");
-            F23();
-            Console.WriteLine();
-            Console.WriteLine("F 24.");
-            F24();
-            Console.WriteLine();
-            Console.WriteLine("F 25.");
-            F25();
-            Console.WriteLine();
-            Console.WriteLine("F 26.");
-
-            Console.WriteLine();
-            Console.WriteLine("F 27.");
-
-            Console.WriteLine();
-            Console.WriteLine("F 28.");
-
+            //Console.WriteLine("F 1.");
+            //F1();
+            //Console.WriteLine();
+            //Console.WriteLine("F 2.");
+            //F2();
+            //Console.WriteLine();
+            //Console.WriteLine("F 3.");
+            //F3();
+            //Console.WriteLine();
+            //Console.WriteLine("F 4.");
+            //F4();
+            //Console.WriteLine();
+            //Console.WriteLine("F 5.");
+            //F5();
+            //Console.WriteLine();
+            //Console.WriteLine("F 6.");
+            //F6();
+            //Console.WriteLine();
+            //Console.WriteLine("F 7.");
+            //F7();
+            //Console.WriteLine();
+            //Console.WriteLine("F 8.");
+            //F8();
+            //Console.WriteLine();
+            //Console.WriteLine("F 9.");
+            //F9();
+            //Console.WriteLine();
+            //Console.WriteLine("F 10.");
+            //F10();
+            //Console.WriteLine();
+            //Console.WriteLine("F 11.");
+            //F11();
+            //Console.WriteLine();
+            //Console.WriteLine("F 12.");
+            //F12();
+            //Console.WriteLine();
+            //Console.WriteLine("F 13.");
+            //F13();
+            //Console.WriteLine();
+            //Console.WriteLine("F 14.");
+            //F14();
+            //Console.WriteLine();
+            //Console.WriteLine("F 15.");
+            //F15();
+            //Console.WriteLine();
+            //Console.WriteLine("F 16.");
+            //F16();
+            //Console.WriteLine();
+            //Console.WriteLine("F 17.");
+            //F17();
+            //Console.WriteLine();
+            //Console.WriteLine("F 18.");
+            //F18();
+            //Console.WriteLine();
+            //Console.WriteLine("F 19.");
+            //F19();
+            //Console.WriteLine();
+            //Console.WriteLine("F 20.");
+            //F20();
+            //Console.WriteLine();
+            //Console.WriteLine("F 21.");
+            //F21();
+            //Console.WriteLine();
+            //Console.WriteLine("F 22.");
+            //F22();
+            //Console.WriteLine();
+            //Console.WriteLine("F 23.");
+            //F23();
+            //Console.WriteLine();
+            //Console.WriteLine("F 24.");
+            //F24();
+            //Console.WriteLine();
+            //Console.WriteLine("F 25.");
+            //F25();
+            //Console.WriteLine();
+            //Console.WriteLine("F 26.");
+            //F26();
+            //Console.WriteLine();
+            //Console.WriteLine("F 27.");
+            //F27();
+            //Console.WriteLine();
+            //Console.WriteLine("F 28.");
+            F28();
             Console.WriteLine();
             Console.WriteLine("F 29.");
- 
+            F29();
             Console.WriteLine();
             Console.WriteLine("F 30.");
             F30();
@@ -280,6 +133,211 @@ namespace ConsoleApp3
                 }
             }
             return osztok;
+        }
+        static void F1()
+        {
+            Console.WriteLine("Hello, world!");
+
+        }
+        static void F2()
+        {
+            Console.WriteLine("adja meg a nevét: ");
+            string nev = Console.ReadLine();
+            Console.WriteLine("2. Üdvözlöm " + nev);
+        }
+        static void F3()
+        {
+            Console.WriteLine("adjon meg egy számot: ");
+            int szam = int.Parse(Console.ReadLine());
+            Console.WriteLine("3. a szám kétszerese: " + (szam * 2));
+
+            
+        }
+        static void F4()
+        {
+            Console.WriteLine("adja meg az első számot: ");
+            int szam1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("adja meg a második számot: ");
+            int szam2 = int.Parse(Console.ReadLine());
+            Console.WriteLine("4. a két szám összege: " + (szam1 + szam2) + ", különbsége: " + (szam1 - szam2) + ", szorzata: " + "4c. Szorzat: " + (szam1 * szam2) + ", hányadosa:" + "4d. Hányados: " + ((double)szam1 / szam2));
+        }
+        static void F5()
+        {
+            Console.WriteLine("5. Adjon meg két egész számot:");
+            Console.Write("Első szám: ");
+            int egesz1 = int.Parse(Console.ReadLine());
+            Console.Write("Második szám: ");
+            int egesz2 = int.Parse(Console.ReadLine());
+
+            int nagyobbik = Math.Max(egesz1, egesz2);
+            Console.WriteLine("5. A nagyobbik szám: " + nagyobbik);
+        }
+        static void F6()
+        {
+            Console.WriteLine("6. Adjon meg három egész számot:");
+            Console.Write("Első szám: ");
+            int harom1 = int.Parse(Console.ReadLine());
+            Console.Write("Második szám: ");
+            int harom2 = int.Parse(Console.ReadLine());
+            Console.Write("Harmadik szám: ");
+            int harom3 = int.Parse(Console.ReadLine());
+
+            int legkisebb = Math.Min(Math.Min(harom1, harom2), harom3);
+            Console.WriteLine("6. A legkisebb szám: " + legkisebb);
+        }
+        static void F7()
+        {
+
+            Console.WriteLine("7. Adja meg a háromszög három oldalának hosszát:");
+            Console.Write("a oldal: ");
+            double a = double.Parse(Console.ReadLine());
+            Console.Write("b oldal: ");
+            double b = double.Parse(Console.ReadLine());
+            Console.Write("c oldal: ");
+            double c = double.Parse(Console.ReadLine());
+
+            if (a + b > c && a + c > b && b + c > a)
+            {
+                Console.WriteLine("7. A háromszög szerkeszthető!");
+            }
+            else
+            {
+                Console.WriteLine("7. A háromszög nem szerkeszthető!");
+            }
+        }
+        static void F8()
+        {
+            Console.WriteLine("8. Adjon meg két pozitív egész számot:");
+            Console.Write("Első pozitív szám: ");
+            int poz1 = int.Parse(Console.ReadLine());
+            Console.Write("Második pozitív szám: ");
+            int poz2 = int.Parse(Console.ReadLine());
+
+            if (poz1 > 0 && poz2 > 0)
+            {
+                double szamtaniKozep = (poz1 + poz2) / 2.0;
+                double mertaniKozep = Math.Sqrt(poz1 * poz2);
+                Console.WriteLine("8. Számtani középérték: " + szamtaniKozep);
+                Console.WriteLine("8. Mértani középérték: " + mertaniKozep);
+            }
+            else
+            {
+                Console.WriteLine("8. Mindkét számnak pozitívnak kell lennie!");
+            }
+        }
+        static void F9()
+        {
+            Console.WriteLine("9. Adja meg a másodfokú egyenlet együtthatóit (ax² + bx + c = 0):");
+            Console.Write("a együttható: ");
+            double egyA = double.Parse(Console.ReadLine());
+            Console.Write("b együttható: ");
+            double egyB = double.Parse(Console.ReadLine());
+            Console.Write("c együttható: ");
+            double egyC = double.Parse(Console.ReadLine());
+
+            if (egyA == 0)
+            {
+                Console.WriteLine("9. Ez nem másodfokú egyenlet!");
+            }
+            else
+            {
+                double diszkriminans = egyB * egyB - 4 * egyA * egyC;
+                if (diszkriminans >= 0)
+                {
+                    Console.WriteLine("9. Az egyenletnek van megoldása!");
+                }
+                else
+                {
+                    Console.WriteLine("9. Az egyenletnek nincs valós megoldása!");
+                }
+            }
+        }
+        static void F10()
+        {
+            Console.WriteLine("10. Adja meg a másodfokú egyenlet együtthatóit a megoldáshoz:");
+            Console.Write("a együttható: ");
+            double megA = double.Parse(Console.ReadLine());
+            Console.Write("b együttható: ");
+            double megB = double.Parse(Console.ReadLine());
+            Console.Write("c együttható: ");
+            double megC = double.Parse(Console.ReadLine());
+
+            if (megA == 0)
+            {
+                Console.WriteLine("10. Ez nem másodfokú egyenlet!");
+            }
+            else
+            {
+                double d = megB * megB - 4 * megA * megC;
+                if (d > 0)
+                {
+                    double x1 = (-megB + Math.Sqrt(d)) / (2 * megA);
+                    double x2 = (-megB - Math.Sqrt(d)) / (2 * megA);
+                    Console.WriteLine("10. x1 = " + x1 + ", x2 = " + x2);
+                }
+                else if (d == 0)
+                {
+                    double x = -megB / (2 * megA);
+                    Console.WriteLine("10. x = " + x + " (dupla gyök)");
+                }
+                else
+                {
+                    Console.WriteLine("10. Nincs valós megoldás!");
+                }
+            }
+        }
+        static void F11()
+        {
+            Console.WriteLine("11. Adja meg a derékszögű háromszög két befogójának hosszát:");
+            Console.Write("Első befogó: ");
+            double befogo1 = double.Parse(Console.ReadLine());
+            Console.Write("Második befogó: ");
+            double befogo2 = double.Parse(Console.ReadLine());
+
+            double atfogo = Math.Sqrt(befogo1 * befogo1 + befogo2 * befogo2);
+            Console.WriteLine("11. Az átfogó hossza: " + atfogo);
+        }
+        static void F12()
+        {
+            Console.WriteLine("12. Adja meg a téglatest három élének hosszát:");
+            Console.Write("Hosszúság: ");
+            double hossz = double.Parse(Console.ReadLine());
+            Console.Write("Szélesség: ");
+            double szel = double.Parse(Console.ReadLine());
+            Console.Write("Magasság: ");
+            double mag = double.Parse(Console.ReadLine());
+
+            double felszin = 2 * (hossz * szel + hossz * mag + szel * mag);
+            double terfogat = hossz * szel * mag;
+            Console.WriteLine("12. Felszín: " + felszin);
+            Console.WriteLine("12. Térfogat: " + terfogat);
+        }
+        static void F13()
+        {
+            Console.WriteLine("13. Adja meg a kör átmérőjét:");
+            Console.Write("Átmérő: ");
+            double atmero = double.Parse(Console.ReadLine());
+
+            double sugar = atmero / 2;
+            double kerulet = 2 * Math.PI * sugar;
+            double terulet = Math.PI * sugar * sugar;
+            Console.WriteLine("13. Kerület: " + kerulet);
+            Console.WriteLine("13. Terület: " + terulet);
+        }
+        static void F14()
+        {
+            Console.WriteLine("14. Adja meg a körív sugarát és középponti szögét (fokban):");
+            Console.Write("Sugár: ");
+            double r = double.Parse(Console.ReadLine());
+            Console.Write("Középponti szög (fokban): ");
+            double szogFok = double.Parse(Console.ReadLine());
+
+            double szogRadian = szogFok * Math.PI / 180;
+            double ivHossz = r * szogRadian;
+            double korszeletTerulet = 0.5 * r * r * szogRadian;
+
+            Console.WriteLine("14. Az ív hossza: " + ivHossz);
+            Console.WriteLine("14. A körszelet területe: " + korszeletTerulet);
         }
         static void F15()
         {
@@ -412,7 +470,116 @@ namespace ConsoleApp3
             while (szam > 3) { szam = szam - 3; db++; }
             Console.WriteLine($"{eredeti} = {db} * 3 + {szam}");
         }
-        
+        static void F26()
+        {
+            int szam26 = SzamBekeres();
+            bool prim = true;
+
+            if (szam26 <= 1)
+            {
+                prim = false;
+            }
+            else
+            {
+                for (int i = 2; i * i <= szam26; i++)
+                {
+                    if (szam26 % i == 0)
+                    {
+                        prim = false;
+                        break;
+                    }
+                }
+            }
+
+            if (prim)
+            {
+                Console.WriteLine(szam26 + " prímszám.");
+            }
+            else
+            {
+                Console.WriteLine(szam26 + " nem prímszám.");
+            }
+        }
+        static void F27()
+        {
+            int szam27 = SzamBekeres();
+            Console.Write("Prímszámok " + szam27 + "-ig: ");
+
+            for (int szam = 2; szam <= szam27; szam++)
+            {
+                bool isPrim = true;
+                for (int i = 2; i * i <= szam; i++)
+                {
+                    if (szam % i == 0)
+                    {
+                        isPrim = false;
+                        break;
+                    }
+                }
+                if (isPrim)
+                {
+                    Console.Write(szam + " ");
+                }
+            }
+        }
+
+        static void F28()
+        {
+            int szam28 = SzamBekeres();
+            List<int> osztok = OsztokListaba(szam28);
+            for (int i = 0; i < osztok.Count; i++)
+            {
+                bool prim = true;
+
+
+                if (osztok[i] <= 1)
+                {
+                    prim = false;
+                }
+                else
+                {
+                    for (int j = 2; j * j <= osztok[i]; j++)
+                    {
+                        if (osztok[i] % j == 0)
+                        {
+                            prim = false;
+                            break;
+                        }
+                    }
+                }
+
+                if (prim)
+                {
+                    Console.WriteLine(osztok[i]);
+                }
+            }
+        }
+        static void F29()
+        {
+            int szam29 = SzamBekeres();
+            int eredeti29 = szam29;
+            List<int> primtenyezok = new List<int>();
+
+            for (int i = 2; i <= szam29; i++)
+            {
+                while (szam29 % i == 0)
+                {
+                    primtenyezok.Add(i);
+                    szam29 /= i;
+                }
+            }
+
+            Console.Write(eredeti29 + " = ");
+            for (int i = 0; i < primtenyezok.Count; i++)
+            {
+                Console.Write(primtenyezok[i]);
+                if (i < primtenyezok.Count - 1)
+                {
+                    Console.Write(" * ");
+                }
+            }
+        }
+
         static void F30()
         {
             Console.Write("Első szám: ");
