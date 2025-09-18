@@ -244,7 +244,7 @@ namespace ConsoleApp3
  
             Console.WriteLine();
             Console.WriteLine("F 30.");
-
+            F30();
             Console.WriteLine();
             Console.WriteLine("F 31.");
             F31();
