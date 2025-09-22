@@ -9,98 +9,93 @@ namespace ConsoleApp3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("F 1.");
+            /*
+            Console.WriteLine("Beolvasás, kiírás, eldöntés, számítások\n");
+            Console.WriteLine("F 1.\n");
             F1();
-            Console.WriteLine();
-            Console.WriteLine("F 2.");
+            Console.WriteLine("F 2.\n");
             F2();
-            Console.WriteLine();
-            Console.WriteLine("F 3.");
+            Console.WriteLine("F 3.\n");
             F3();
-            Console.WriteLine();
-            Console.WriteLine("F 4.");
+            Console.WriteLine("F 4.\n");
             F4();
-            Console.WriteLine();
-            Console.WriteLine("F 5.");
+            Console.WriteLine("F 5.\n");
             F5();
-            Console.WriteLine();
-            Console.WriteLine("F 6.");
+            Console.WriteLine("F 6.\n");
             F6();
-            Console.WriteLine();
-            Console.WriteLine("F 7.");
+            Console.WriteLine("F 7.\n");
             F7();
-            Console.WriteLine();
-            Console.WriteLine("F 8.");
+            Console.WriteLine("F 8.\n");
             F8();
-            Console.WriteLine();
-            Console.WriteLine("F 9.");
+            Console.WriteLine("F 9.\n");
             F9();
-            Console.WriteLine();
-            Console.WriteLine("F 10.");
+            Console.WriteLine("F 10.\n");
             F10();
-            Console.WriteLine();
-            Console.WriteLine("F 11.");
+            Console.WriteLine("F 11.\n");
             F11();
-            Console.WriteLine();
-            Console.WriteLine("F 12.");
+            Console.WriteLine("F 12.\n");
             F12();
-            Console.WriteLine();
-            Console.WriteLine("F 13.");
+            Console.WriteLine("F 13.\n");
             F13();
-            Console.WriteLine();
-            Console.WriteLine("F 14.");
+            Console.WriteLine("F 14.\n");
             F14();
-            Console.WriteLine();
-            Console.WriteLine("F 15.");
+            Console.WriteLine("Egyszerű ciklusok\n");
+            Console.WriteLine("F 15.\n");
             F15();
-            Console.WriteLine();
-            Console.WriteLine("F 16.");
+            Console.WriteLine("F 16.\n");
             F16();
-            Console.WriteLine();
-            Console.WriteLine("F 17.");
+            Console.WriteLine("F 17.\n");
             F17();
-            Console.WriteLine();
-            Console.WriteLine("F 18.");
+            Console.WriteLine("F 18.\n");
             F18();
-            Console.WriteLine();
-            Console.WriteLine("F 19.");
+            Console.WriteLine("F 19.\n");
             F19();
-            Console.WriteLine();
-            Console.WriteLine("F 20.");
+            Console.WriteLine("F 20.\n");
             F20();
-            Console.WriteLine();
-            Console.WriteLine("F 21.");
+            Console.WriteLine("F 21.\n");
             F21();
-            Console.WriteLine();
-            Console.WriteLine("F 22.");
+            Console.WriteLine("F 22.\n");
             F22();
-            Console.WriteLine();
-            Console.WriteLine("F 23.");
+            Console.WriteLine("F 23.\n");
             F23();
-            Console.WriteLine();
-            Console.WriteLine("F 24.");
+            Console.WriteLine("F 24.\n");
             F24();
-            Console.WriteLine();
-            Console.WriteLine("F 25.");
+            Console.WriteLine("F 25.\n");
             F25();
-            Console.WriteLine();
-            Console.WriteLine("F 26.");
+            Console.WriteLine("F 26.\n");
             F26();
-            Console.WriteLine();
-            Console.WriteLine("F 27.");
+            Console.WriteLine("F 27.\n");
             F27();
-            Console.WriteLine();
-            Console.WriteLine("F 28.");
+            Console.WriteLine("F 28.\n");
             F28();
-            Console.WriteLine();
-            Console.WriteLine("F 29.");
+            Console.WriteLine("F 29.\n");
             F29();
-            Console.WriteLine();
-            Console.WriteLine("F 30.");
+            Console.WriteLine("F 30.\n");
             F30();
-            Console.WriteLine();
-            Console.WriteLine("F 31.");
+            Console.WriteLine("F 31.\n");
             F31();
+            Console.WriteLine("Egymásba ágyazott ciklusok:\n");
+            Console.WriteLine("F 32.\n");
+            F32();
+            Console.WriteLine("F 33.\n");
+            F33();
+            Console.WriteLine("F 34.\n");
+            F34();
+            Console.WriteLine("F 35.\n");
+            F35();
+            Console.WriteLine("F 36.\n");
+            F36();
+            Console.WriteLine("F 37.\n");
+            F37();
+            Console.WriteLine("F 38.\n");
+            F38();
+            Console.WriteLine("F 39.\n");
+            F39();
+            Console.WriteLine("F 40.\n");
+            F40();
+            */
+            Console.WriteLine("F 41.\n");
+            F41();
         }
 
         public static int SzamBekeres()
@@ -116,12 +111,10 @@ namespace ConsoleApp3
                 return 0;
             }
         }
-
         public static void SzamKiiras(int szam)
         {
             Console.WriteLine("A megadott szám: " + szam);
         }
-
         public static List<int> OsztokListaba(int szam)
         {
             List<int> osztok = new List<int>();
@@ -151,7 +144,7 @@ namespace ConsoleApp3
             int szam = int.Parse(Console.ReadLine());
             Console.WriteLine("3. a szám kétszerese: " + (szam * 2));
 
-            
+
         }
         static void F4()
         {
@@ -409,8 +402,8 @@ namespace ConsoleApp3
                 {
                     Console.WriteLine("Kérek pozitív számot!");
                 }
-        } while (pozitivSzam <= 0) ;
-        Console.WriteLine("Pozitív szám beolvasva: " + pozitivSzam);
+            } while (pozitivSzam <= 0);
+            Console.WriteLine("Pozitív szám beolvasva: " + pozitivSzam);
         }
         static void F22()
         {
@@ -522,7 +515,6 @@ namespace ConsoleApp3
                 }
             }
         }
-
         static void F28()
         {
             int szam28 = SzamBekeres();
@@ -579,7 +571,6 @@ namespace ConsoleApp3
                 }
             }
         }
-
         static void F30()
         {
             Console.Write("Első szám: ");
@@ -620,6 +611,168 @@ namespace ConsoleApp3
 
             int lnko = (eredeti_a31 * eredeti_b31) / a31;
             Console.WriteLine("A " + eredeti_a31 + " és " + eredeti_b31 + " legkisebb közös többszöröse: " + lnko);
+        }
+        static void F32()
+        {
+            int szam = SzamBekeres();
+            for (int i = 1; i <= 10; i++)
+            {
+                for (int j = 1; j <= 10; j++)
+                {
+                    Console.Write(j * i * szam * szam + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+        static void F33()
+        {
+            int szam = SzamBekeres();
+            for (int i = 1; i <= 10; i++)
+            {
+                for (int j = 1; j <= 10; j++)
+                {
+                    Console.Write(szam * i + szam * j + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+        static void F34()
+        {
+            int szam1 = 0;
+            int szam2 = 0;
+            for (int i = 1; i <= 2; i++)
+            { 
+                Console.WriteLine("Kérem a(z) " + i + ". számot:");
+                int beolvasott = SzamBekeres();
+                if (i == 1)
+                    szam1 = beolvasott;
+                else
+                    szam2 = beolvasott;
+            }
+
+            if ((10 <= szam1 && szam1 <= 99) || (10 <= szam2 && szam2 <= 99))
+            {
+                double elsoszam1 = szam1 / 10;
+                int masodikszam1 = szam1 % 10;
+                double elsoszam2 = szam2 / 10;
+                int masodikszam2 = szam2 % 10;
+
+                Console.WriteLine(masodikszam1 * 10 + elsoszam1);
+
+                if ((masodikszam1 * 10 + elsoszam1) * (masodikszam2 * 10 + elsoszam2) == szam1 * szam2)
+                {
+                    Console.WriteLine("Páros speciális szám!");
+                }
+                else
+                {
+                    Console.WriteLine("Nem páros speciális szám!");
+                }
+            }
+            else
+                {
+                    Console.WriteLine("Kérem kétjegyű számot adjon meg!");
+                }
+        }
+        static void F35()
+        {
+            
+        }
+        static void F36()
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                for (int j = 1; j <= 10; j++)
+                {
+                    Console.Write("XO");
+                }
+                Console.WriteLine();
+            }
+        }
+        static void F37()
+        {
+            int szam = SzamBekeres();
+            if(szam > 0)
+            {
+                for (int i = 0; i <= szam; i++)
+                {
+                    for (int j = 1; j <= 2 * i + 1; j++)
+                    {
+                        Console.Write("*");
+                    }
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("Nem megfelelő a szám");
+            }
+        }
+        static void F38()
+        {
+            int szam = SzamBekeres();
+            if (szam > 0)
+            {
+                for (int i = 0; i <= szam; i++)
+                {
+                    for (int j = 1; j <= szam - i; j++)
+                    {
+                        Console.Write(" ");
+                    }
+                    for (int j = 1; j <= 2 * i + 1; j++)
+                    {
+                        Console.Write("*");
+                    }
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("Nem megfelelő a szám");
+            }
+        }
+        static void F39()
+        {
+            int szam1 = 0;
+            int szam2 = 0;
+            for (int i = 1; i <= 2; i++)
+            {
+                Console.WriteLine("Kérem a(z) " + i + ". számot:");
+                int beolvasott = SzamBekeres();
+                if (i == 1)
+                    szam1 = beolvasott;
+                else
+                    szam2 = beolvasott;
+            }
+
+            Console.WriteLine();
+
+            for (int i = 1; i <= szam1; i++)
+            {
+                Console.Write("*");
+            }
+            Console.WriteLine();
+            for (int i = 1; i <= szam2; i++)
+            {
+                Console.Write("*");
+                for (int j = 1; j < szam1 - 1; j++)
+                {
+                    Console.Write(" ");
+                }
+                Console.WriteLine("*");
+            }
+
+            for (int i = 1; i <= szam1; i++)
+            {
+                Console.Write("*");
+            }
+            Console.WriteLine();
+        }
+        static void F40()
+        {
+        }
+        static void F41()
+        {
+            
         }
     }
 }
