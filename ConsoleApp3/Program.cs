@@ -93,9 +93,9 @@ namespace ConsoleApp3
             F39();
             Console.WriteLine("F 40.\n");
             F40();
-            */
             Console.WriteLine("F 41.\n");
             F41();
+            */
         }
 
         public static int SzamBekeres()
@@ -675,7 +675,34 @@ namespace ConsoleApp3
         }
         static void F35()
         {
-            
+            string lowercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToLower();
+            char[,] matrix = new char[10, 3]; 
+            int index = 0;
+
+            for (int j = 0; j < matrix.GetLength(1); j++) 
+            {
+                for (int i = 0; i < matrix.GetLength(0); i++) 
+                {
+                    if (index < lowercase.Length) 
+                    {
+                        matrix[i, j] = lowercase[index];
+                        index++;
+                    }
+                    else
+                    {
+                        matrix[i, j] = ' ';
+                    }
+                }
+            }
+
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    Console.Write(matrix[i,j] + " " + (int)matrix[i, j]);
+                }
+                Console.WriteLine();
+            }
         }
         static void F36()
         {
@@ -769,10 +796,37 @@ namespace ConsoleApp3
         }
         static void F40()
         {
+            int szam = SzamBekeres();
+            List<int> osztok = new List<int>();
+
+            for (int i = 0; i < szam; i++)
+            {
+                osztok.Clear();
+                osztok = OsztokListaba(i);
+                int osszeg = osztok.Sum();
+
+
+                if (osszeg == 2 * i)
+                {
+                    Console.WriteLine(i + " ");
+                }
+            }
+                
         }
         static void F41()
         {
-            
+            string abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            for (int i = 0; i < 26; i++)
+            {
+                for (int j = 0; j < 26; j++)
+                {
+                    int index = (i + j) % 26;
+                    Console.Write(abc[index] + " ");
+                }
+                Console.WriteLine();
+            }
+
         }
     }
 }
