@@ -95,7 +95,71 @@ namespace ConsoleApp3
             F40();
             Console.WriteLine("F 41.\n");
             F41();
+            Console.WriteLine("Tömbök kezelése");
+            Console.WriteLine("F 42.\n");
+            F42();
+            Console.WriteLine("F 43.\n");
+            F43();
+            Console.WriteLine("F 44.\n");
+            F44();
+            Console.WriteLine("F 45.\n");
+            F45();
+            Console.WriteLine("F 46.\n");
+            F46();
+            Console.WriteLine("F 47.\n");
+            F47();
+            Console.WriteLine("F 48.\n");
+            F48();
+            Console.WriteLine("F 49.\n");
+            F49();
+            Console.WriteLine("Szövegkezelés");
+            Console.WriteLine("F 50.\n");
+            F50();
+            Console.WriteLine("F 51.\n");
+            F51();
+            Console.WriteLine("F 52.\n");
+            F52();
+            Console.WriteLine("F 53.\n");
+            F53();
+            Console.WriteLine("F 54.\n");
+            Console.WriteLine(F54());
+            Console.WriteLine("F 55.\n");
+            F55();
+            Console.WriteLine("F 56.\n");
+            Console.WriteLine(F56());
+            Console.WriteLine("F 57.\n");
+            F57();
             */
+            Console.WriteLine("File-kezelés (I. rész):\n");
+            Console.WriteLine("F 58.\n");
+            F58();
+            Console.WriteLine("F 59.\n");
+            F59();
+            Console.WriteLine("F 60.\n");
+            F60();
+            Console.WriteLine("F 61.\n");
+            F61();
+            Console.WriteLine("F 62.\n");
+            F62();
+            Console.WriteLine("F 63.\n");
+            F63();
+            Console.WriteLine("F 64.\n");
+            F64();
+            Console.WriteLine("File-kezelés (II. rész):\n");
+            Console.WriteLine("F 65.\n");
+            F65();
+            Console.WriteLine("F 66.\n");
+            F66();
+            Console.WriteLine("F 67.\n");
+            F67();
+            Console.WriteLine("F 68.\n");
+            F68();
+            Console.WriteLine("F 69.\n");
+            F69();
+            Console.WriteLine("Keresés, kiválogatás\n");
+            Console.WriteLine("F 70.\n");
+            F70();
+
         }
 
         public static int SzamBekeres()
@@ -109,6 +173,19 @@ namespace ConsoleApp3
             catch
             {
                 return 0;
+            }
+        }
+        public static string SzovegBekeres()
+        {
+            Console.Write("Adj meg egy szöveget/betűt: ");
+            try
+            {
+                string szo = Console.ReadLine() ?? "";
+                return szo;
+            }
+            catch
+            {
+                return "";
             }
         }
         public static void SzamKiiras(int szam)
@@ -641,7 +718,7 @@ namespace ConsoleApp3
             int szam1 = 0;
             int szam2 = 0;
             for (int i = 1; i <= 2; i++)
-            { 
+            {
                 Console.WriteLine("Kérem a(z) " + i + ". számot:");
                 int beolvasott = SzamBekeres();
                 if (i == 1)
@@ -669,21 +746,21 @@ namespace ConsoleApp3
                 }
             }
             else
-                {
-                    Console.WriteLine("Kérem kétjegyű számot adjon meg!");
-                }
+            {
+                Console.WriteLine("Kérem kétjegyű számot adjon meg!");
+            }
         }
         static void F35()
         {
             string lowercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToLower();
-            char[,] matrix = new char[10, 3]; 
+            char[,] matrix = new char[10, 3];
             int index = 0;
 
-            for (int j = 0; j < matrix.GetLength(1); j++) 
+            for (int j = 0; j < matrix.GetLength(1); j++)
             {
-                for (int i = 0; i < matrix.GetLength(0); i++) 
+                for (int i = 0; i < matrix.GetLength(0); i++)
                 {
-                    if (index < lowercase.Length) 
+                    if (index < lowercase.Length)
                     {
                         matrix[i, j] = lowercase[index];
                         index++;
@@ -699,9 +776,13 @@ namespace ConsoleApp3
             {
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    Console.Write(matrix[i,j] + " " + (int)matrix[i, j]);
+                    if (matrix[i, j] != ' ')
+                    {
+                        Console.Write(matrix[i, j] + " " + (int)matrix[i, j] + " ");
+
+                    }
                 }
-                Console.WriteLine();
+                Console.WriteLine(" ");
             }
         }
         static void F36()
@@ -718,7 +799,7 @@ namespace ConsoleApp3
         static void F37()
         {
             int szam = SzamBekeres();
-            if(szam > 0)
+            if (szam > 0)
             {
                 for (int i = 0; i <= szam; i++)
                 {
@@ -811,7 +892,7 @@ namespace ConsoleApp3
                     Console.WriteLine(i + " ");
                 }
             }
-                
+
         }
         static void F41()
         {
@@ -827,6 +908,315 @@ namespace ConsoleApp3
                 Console.WriteLine();
             }
 
+        }
+        static void F42()
+        {
+            int szam1 = SzamBekeres();
+            int szam2 = SzamBekeres();
+            int szam3 = SzamBekeres();
+            int szam4 = SzamBekeres();
+            int szam5 = SzamBekeres();
+            int db = 0;
+            int[] tomb = new int[] { szam1, szam2, szam3, szam4, szam5 };
+            for (int i = 0; i < tomb.Length; i++)
+            {
+                if(tomb[i] % 2 != 0)
+                {
+                    db++;
+                }
+            }
+            Console.WriteLine(db);
+        }
+        static void F43()
+        {
+            int szam1 = SzamBekeres();
+            int szam2 = SzamBekeres();
+            int szam3 = SzamBekeres();
+            int szam4 = SzamBekeres();
+            int szam5 = SzamBekeres();
+            int osszeg = 0;
+            int[] tomb = new int[] { szam1, szam2, szam3, szam4, szam5 };
+            for (int i = 0; i < tomb.Length; i++)
+            {
+                if (tomb[i] % 2 == 0)
+                {
+                    osszeg += tomb[i];
+                }
+            }
+            Console.WriteLine(osszeg);
+        }
+        static void F44()
+        {
+            int darabszam = SzamBekeres();
+            for (int i = 0; i < darabszam; i++)
+            {
+                int szam = SzamBekeres();  
+
+            }
+        }
+        static void F50()
+        {
+            string szo = SzovegBekeres();
+            for (int i = 0; i < szo.Length; i++)
+            {
+                Console.Write(szo[i] + " ");
+            }
+            Console.WriteLine();
+        }
+        static void F51()
+        {
+            string szo = SzovegBekeres().ToLower();
+            char betu = char.Parse(SzovegBekeres());
+
+            for (int i = 0; i < szo.Length; i++)
+            {
+                if (szo[i] != betu)
+                {
+                    Console.Write(szo[i]);
+                }
+
+            }
+            Console.WriteLine();
+        }
+        static void F52()
+        {
+            string szo = SzovegBekeres();
+            for (int i = 0; i < szo.Length; i = i + 2)
+            {
+                Console.WriteLine(szo[i]);
+            }
+        }
+        static void F53()
+        {
+            string szo = SzovegBekeres();
+            for (int i = 0; i < szo.Length; i++)
+            {
+                Console.WriteLine((int)szo[i]);
+            }
+        }
+        public static string F54()
+        { 
+            string szo = SzovegBekeres();
+            string eredmeny = "";
+            for (int i = szo.Length - 1;i >= 0; i--)
+            {
+                eredmeny += szo[i];
+            }
+            Console.WriteLine();
+            return eredmeny;
+        }
+        static void F55() 
+        {
+            string szoveg = SzovegBekeres();
+            string[] tomb = szoveg.Split(" ");
+            for (int i = 0; i < tomb.Length; i++)
+            {
+                Console.WriteLine(tomb[i]);
+            }
+        }
+        public static string F56() 
+        {
+            return F54().ToUpper();
+        }
+        static void F57()
+        {
+            string szoveg = SzovegBekeres();
+            string[] tomb = szoveg.Split(" ");
+            for (int i = 0; i < tomb.Length; i++)
+            {
+                if (tomb[i].Length > 0)
+                {
+                    tomb[i] = char.ToUpper(tomb[i][0]) + tomb[i].Substring(1);
+                }
+                Console.WriteLine(tomb[i]);
+            }
+        }
+        static void F58()
+        {
+            string[] sorok = File.ReadAllLines("forras58.be");
+            int legnagyobb = int.MinValue;
+
+            foreach (string sor in sorok)
+            {
+                int szam = int.Parse(sor);
+                if (szam > legnagyobb)
+                {
+                    legnagyobb = szam;
+                }
+            }
+
+            Console.WriteLine("A legnagyobb szám: " + legnagyobb);
+        }
+
+        static void F59()
+        {
+            string[] sorok = File.ReadAllLines("forras59.be");
+            int legkisebb = int.MaxValue;
+
+            foreach (string sor in sorok)
+            {
+                int szam = int.Parse(sor);
+                if (szam < legkisebb)
+                {
+                    legkisebb = szam;
+                }
+            }
+
+            Console.WriteLine("A legkisebb páros szám: " + legkisebb);
+        }
+
+        static void F60()
+        {
+            string[] sorok = File.ReadAllLines("forras60.be");
+            double atlag = 0;
+            int osszeg = 0;
+
+            foreach (string sor in sorok)
+            {
+                osszeg += int.Parse(sor);
+            }
+
+            atlag = (double)osszeg / sorok.Length;
+            Console.WriteLine("A páratlanok átlaga: " + atlag);
+        }
+
+        static void F61()
+        {
+            string[] sorok = File.ReadAllLines("forras61.be");
+            int leghosszabb = 0;
+
+            foreach (string sor in sorok)
+            {
+                if (sor.Length > leghosszabb)
+                {
+                    leghosszabb = sor.Length;
+                }
+            }
+
+            Console.WriteLine("A leghosszabb: " + leghosszabb);
+        }
+
+        static void F62()
+        {
+            string[] sorok = File.ReadAllLines("forras62.be");
+
+            foreach (string sor in sorok)
+            {
+                if (sor.StartsWith("a") || sor.StartsWith("A"))
+                {
+                    Console.WriteLine(sor);
+                }
+            }
+        }
+
+        static void F63()
+        {
+            string[] sorok = File.ReadAllLines("forras63.be");
+            foreach (string sor in sorok)
+            {
+                int szam = int.Parse(sor);
+                if (szam % 2 == 0)
+                {
+                    Console.WriteLine(sor);
+                }
+            }
+        }
+
+        static void F64()
+        {
+            string[] sorok = File.ReadAllLines("forras64.be");
+            string[] abc = sorok.OrderBy(s => s).ToArray();
+
+            foreach (string sor in abc)
+            {
+                Console.WriteLine(sor);
+            }
+        }
+
+        static void F65()
+        {
+            string[] sorok = File.ReadAllLines("forras65.be");
+            int legkisebb = int.MaxValue;
+
+            foreach (string sor in sorok)
+            {
+                int szam = int.Parse(sor);
+                if (szam < legkisebb)
+                {
+                    legkisebb = szam;
+                }
+            }
+
+            Console.WriteLine("A legkisebb: " + legkisebb);
+        }
+
+        static void F66()
+        {
+            string[] sorok = File.ReadAllLines("forras66.be");
+            int legnagyobb = int.MinValue;
+
+            foreach (string sor in sorok)
+            {
+                int szam = int.Parse(sor);
+                if (szam > legnagyobb && szam % 2 == 0)
+                {
+                    legnagyobb = szam;
+                }
+            }
+
+            Console.WriteLine("A legkisebb: " + legnagyobb);
+        }
+
+        static void F67()
+        {
+            string[] sorok = File.ReadAllLines("forras67.be");
+            double osszeg = 0;
+
+            foreach (string sor in sorok)
+            {
+                int szam = int.Parse(sor);
+                if (szam % 2 != 0)
+                {
+                    osszeg += szam;
+                }
+            }
+
+            double atlag = osszeg / sorok.Length;
+            Console.WriteLine("A párosak összege! " + atlag);
+        }
+
+        static void F68()
+        {
+            string[] sorok = File.ReadAllLines("forras68.be");
+            string legroviebb = sorok[0];
+
+            foreach (string sor in sorok)
+            {
+                if (sor.Length < legroviebb.Length)
+                {
+                    legroviebb = sor;
+                }
+            }
+
+            Console.WriteLine("A legrövidebb: " + legroviebb);
+        }
+
+        static void F69()
+        {
+            string[] sorok = File.ReadAllLines("forras69.be");
+
+            foreach (string sor in sorok)
+            {
+                if (!sor.StartsWith("a") && !sor.StartsWith("A"))
+                {
+                    Console.WriteLine(sor);
+                }
+            }
+        }
+
+        static void F70()
+        {
+           
         }
     }
 }
