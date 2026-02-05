@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Forgoracs_20251126": {
+      "commandName": "Project"
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    }
+  }
+}
